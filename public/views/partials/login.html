@@ -1,0 +1,15 @@
+<div ng-controller='loginController'>
+<div ng-hide="showUser">
+  <input type="button" ng-click="logIn()" value="logIn">
+  <ul>
+  <li><a href="#signUp">Profile</a></li>
+</ul>
+</div>
+<div ng-show="showUser">
+  <input type="button" ng-click="logOut()" value="Log Out">
+  <ul>
+  <li><a href="#search">Search</a></li>
+  <li><a href="#profile">Profiles</a></li>
+</ul>
+</div>
+</div>

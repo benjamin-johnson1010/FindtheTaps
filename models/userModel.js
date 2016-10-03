@@ -3,7 +3,8 @@ var Schema = mongoose.Schema;
 
 var userSchema = new Schema({
 userName: String,
-location: String
+location: String,
+rating: Number
 });
 
 var User = mongoose.model('users', userSchema);
