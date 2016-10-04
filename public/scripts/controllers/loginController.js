@@ -5,7 +5,14 @@ var logOutURL = 'https://wibajohnson.auth0.com/v2/logout';
 
 myApp.controller('loginController', ['$scope', '$http', function($scope,$http){
   console.log('NG');
-
+  $scope.newAge = function(){
+    if($scope.age < 21){
+    alert("You are not old enough to use this site");
+  }
+  else{
+  $scope.showUser = true;
+  }
+};//end newAage
   //run at controller load
   $scope.init = function(){
     console.log( 'in init' );
@@ -14,12 +21,12 @@ myApp.controller('loginController', ['$scope', '$http', function($scope,$http){
       // if so, save userProfile as $scope.userProfile
       $scope.userProfile = JSON.parse( localStorage.getItem( 'userProfile' ) );
       console.log( 'loggedIn:', $scope.userProfile );
-      $scope.showUser = true;
+      $scope.showLogin = true;
     }//end if
     else{
       // if not, make sure we are logged out and empty
       emptyLocalStorage();
-      $scope.showUser = false;
+      $scope.showLogin = false;
     }//end else
   }; // end init function
 
@@ -49,7 +56,7 @@ $scope.logOut = function(){
      if( data.data == 'OK' ){
        // empty localStorage
        emptyLocalStorage();
-       $scope.showUser = false;
+       $scope.showLogin = false;
      }
    });
  }; // end scope.logOut
