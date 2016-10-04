@@ -6,11 +6,13 @@ var logOutURL = 'https://wibajohnson.auth0.com/v2/logout';
 myApp.controller('loginController', ['$scope', '$http', function($scope,$http){
   console.log('NG');
   $scope.newAge = function(){
-    if($scope.age < 21){
+    console.log($scope.age);
+    if($scope.age < 21 || $scope.age === undefined){
     alert("You are not old enough to use this site");
   }
   else{
   $scope.showUser = true;
+  $scope.init();
   }
 };//end newAage
   //run at controller load
@@ -62,7 +64,7 @@ $scope.logOut = function(){
  }; // end scope.logOut
 
  // run init on controller load
- $scope.init();
+ // $scope.init();
 }]);//end logInPageController
 var emptyLocalStorage = function(){
  localStorage.removeItem( 'userProfile' );
