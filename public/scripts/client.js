@@ -10,16 +10,20 @@ myApp.config(["$routeProvider", function($routeProvider){
         controller: "loginController"
       }).
       when("/signUp", {
-        templateUrl: "../views/partials/signUp.html",
+        templateUrl: "/views/partials/signUp.html",
         controller: "signUpController"
       }).
       when("/search", {
-        templateUrl: "./views/partials/search.html",
+        templateUrl: "/views/partials/search.html",
         controller: "searchController"
       }).
       when("/profile", {
         templateUrl: "/views/partials/profile.html",
         controller: "profileController"
+      }).
+      when("/directions", {
+        templateUrl: "/views/partials/directions.html",
+        controller: "directionsController"
       }).
       otherwise({
         redirectTo: "/login"
