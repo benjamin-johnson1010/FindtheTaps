@@ -3,9 +3,15 @@ var geoURL = 'https://maps.googleapis.com/maps/api/geocode/json?components=posta
 var placesURL = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=';
 var radius='&radius=';
 var next = '&hasNextPage=true&nextPage()=true';
-
-//checks for brewery and taphouse to refine results, which eliminates restaurants
 var breweryURL= '&keyword=brewery|taproom|brewing|taphouse=';
+
+// myApp.factory('breweryLocation', function(){
+//   var brewerylocation = function(data){
+//     console.log('in factory', data);
+//   };
+// return(breweryLocation);
+// });
+//checks for brewery and taphouse to refine results, which eliminates restaurants
 myApp.controller("searchController", ["$scope", "$http", function($scope,$http){
   console.log("OH HAI SEARCH");
 $scope.newSearch=function(){
@@ -46,9 +52,8 @@ $scope.searchArea = placesURL + $scope.lat + ',' + $scope.lng + radius + $scope.
   });//then function end for 2nd http call
   });//end http for geo call
 };//end newSearch
-$scope.viewLocation=function(data){
-  console.log('in viewLocation', data);
+// $scope.viewLocation=function(data){
+//   console.log(factory);
 
 
-};
 }]);//end searchController
