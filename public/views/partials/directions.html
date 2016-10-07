@@ -6,7 +6,7 @@
   <!--show displayPets on load-->
 <div ng-init="displayDirections()"></div>
 
-
+<p ng-repeat="directions in direction"><span ng-bind-html="directionResults(directions.html_instructions)"></span> for {{directions.distance.text}}</p>
 
 </div>
 

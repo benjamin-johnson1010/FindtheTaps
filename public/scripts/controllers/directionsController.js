@@ -1,6 +1,6 @@
 var directionsURL = 'https://maps.googleapis.com/maps/api/directions/json?origin=';
 var key = '&key=AIzaSyAgt1boABfcHeikPyY8Xps1SD5JLfepjcw';
-myApp.controller("directionsController", ["$scope", "$http", function($scope,$http){
+myApp.controller("directionsController", ["$scope", "$http", '$sce', function($scope,$http, $sce){
   console.log('in directionsController');
   $scope.name = sessionStorage.getItem("name");
   $scope.address = sessionStorage.getItem("address");
@@ -24,7 +24,12 @@ $scope.searchDirections = directionsURL + $scope.lat + ',' + $scope.lng + '&dest
         url: $scope.searchDirections,
         datatype: JSON
       }).then(function(mapData){
-       console.log('this is from the directions api', mapData);
+       console.log('this is from the directions api', mapData.data.routes[0].legs[0].steps);
+       $scope.direction = mapData.data.routes[0].legs[0].steps;
+       $scope.directionResults = function(results){
+         console.log(results);
+         return $sce.trustAsHtml(results);
+       };
    });
  };
 }]);
