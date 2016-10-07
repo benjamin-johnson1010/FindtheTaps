@@ -9,13 +9,6 @@ myApp.controller("directionsController", ["$scope", "$http", '$sce', function($s
   $scope.endLat = sessionStorage.getItem("endLat");
   $scope.endLng = sessionStorage.getItem("endLng");
 
-  console.log($scope.name);
-  console.log($scope.address);
-  console.log($scope.lat);
-  console.log($scope.lng);
-  console.log($scope.endLat);
-  console.log($scope.endLng);
-
  $scope.displayDirections = function(){
    console.log('in directions controller');
 $scope.searchDirections = directionsURL + $scope.lat + ',' + $scope.lng + '&destination=' + $scope.endLat +','+ $scope.endLng + key;
@@ -27,7 +20,6 @@ $scope.searchDirections = directionsURL + $scope.lat + ',' + $scope.lng + '&dest
        console.log('this is from the directions api', mapData.data.routes[0].legs[0].steps);
        $scope.direction = mapData.data.routes[0].legs[0].steps;
        $scope.directionResults = function(results){
-         console.log(results);
          return $sce.trustAsHtml(results);
        };
    });

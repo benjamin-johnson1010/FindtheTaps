@@ -5,8 +5,11 @@
   <div ng-controller="directionsController">
   <!--show displayPets on load-->
 <div ng-init="displayDirections()"></div>
-
-<p ng-repeat="directions in direction"><span ng-bind-html="directionResults(directions.html_instructions)"></span> for {{directions.distance.text}}</p>
+<h2>{{name}}</h2>
+<h3>{{address}}</h3>
+<button ng-click="visited">Visited</button>
+<p ng-repeat="directions in direction"><span ng-bind-html="directionResults(directions.html_instructions)"></span>
+  for {{directions.distance.text}} </p>
 
 </div>
 

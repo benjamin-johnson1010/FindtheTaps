@@ -1,6 +1,6 @@
 <div ng-controller='loginController'>
 <div ng-hide="showUser">
-<input type="number" ng-model="age" placeholder=""></input>
+<p>Input Your Age</p><input type="number" ng-model="age" placeholder=""></input>
 <button ng-click="newAge()">Submit</button>
 </div>
 <div ng-show="showUser">
@@ -12,6 +12,7 @@
   <ul>
   <li><a href="#search">Search</a></li>
   <li><a href="#profile">Profiles</a></li>
+  <p>{{displayName}}</p>
 </ul>
 </div>
 </div>

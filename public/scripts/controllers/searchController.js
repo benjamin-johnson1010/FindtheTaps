@@ -1,19 +1,32 @@
 var key = '&key=AIzaSyAgt1boABfcHeikPyY8Xps1SD5JLfepjcw';
-var geoURL = 'https://maps.googleapis.com/maps/api/geocode/json?components=postal_code:';
+var geoURL = 'https://maps.googleapis.com/maps/api/geocode/json?address=:';
 var placesURL = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=';
 var radius='&radius=';
 var next = '&hasNextPage=true&nextPage()=true';
 var breweryURL= '&keyword=brewery|taproom|brewing|taphouse=';
-// myApp.factory('breweryLocation',function(data){
-//   var breweryLocation = 'breweryLocation';
-//   console.log(br);
-//   return breweryLocation;
-// });
-//checks for brewery and taphouse to refine results, which eliminates restaurants
+
 myApp.controller("searchController", ["$scope", "$http", function($scope,$http){
   console.log("OH HAI SEARCH");
+
 $scope.newSearch=function(){
-$scope.searchLocation = geoURL + $scope.zipCode + key;
+  console.log($scope.city);
+  //eliminate spacing in address make it into array
+  $scope.streetArray = $scope.streetName.split(" ");
+//set to first word in streetArray
+  $scope.addressURL = $scope.streetArray[0];
+  //add each word in array to add + so that is seached in url form
+  for (var i = 0; i < $scope.streetArray.length-1; i++) {
+    $scope.addressURL =  $scope.addressURL + '+' + $scope.streetArray[i + 1];
+    }
+    //do same for city
+    $scope.cityArray = $scope.city.split(" ");
+    $scope.cityURL = $scope.cityArray;
+    for (var j = 0; j < $scope.cityArray.length-1; j++){
+      $scope.cityURL =  $scope.cityURL + '+' + $scope.cityArray[j + 1];
+    }
+    //$scope.searchLocation = geoURL + $scope.zipCode + key;
+$scope.searchLocation = geoURL + $scope.addressURL + $scope.city + "+MN" + key;
+console.log($scope.searchLocation = geoURL + $scope.addressURL + '+' + $scope.cityURL + "+" + $scope.stateInitial + key);
 $http({
      url: $scope.searchLocation,
      datatype: JSON
@@ -54,6 +67,7 @@ $scope.searchArea = placesURL + $scope.lat + ',' + $scope.lng + radius + $scope.
 };//end newSearch
 $scope.viewLocation=function(data){
   sessionStorage.setItem("name",data.name);
+  sessionStorage.setItem("address", data.vicinity);
   sessionStorage.setItem("endLat", data.geometry.location.lat);
   sessionStorage.setItem("endLng", data.geometry.location.lng);
 };
