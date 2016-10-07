@@ -4,12 +4,10 @@ var placesURL = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?lo
 var radius='&radius=';
 var next = '&hasNextPage=true&nextPage()=true';
 var breweryURL= '&keyword=brewery|taproom|brewing|taphouse=';
-
-// myApp.factory('breweryLocation', function(){
-//   var brewerylocation = function(data){
-//     console.log('in factory', data);
-//   };
-// return(breweryLocation);
+// myApp.factory('breweryLocation',function(data){
+//   var breweryLocation = 'breweryLocation';
+//   console.log(br);
+//   return breweryLocation;
 // });
 //checks for brewery and taphouse to refine results, which eliminates restaurants
 myApp.controller("searchController", ["$scope", "$http", function($scope,$http){
@@ -20,11 +18,13 @@ $http({
      url: $scope.searchLocation,
      datatype: JSON
    }).then(function(mapData){
-    console.log('this is from the server', mapData);
+    console.log('this is from the api', mapData);
 //get latitude
 $scope.lat =$scope.newLocation =mapData.data.results[0].geometry.location.lat;
 //get longitude
 $scope.lng=$scope.newLocation =mapData.data.results[0].geometry.location.lng;
+sessionStorage.setItem("lat", $scope.lat);
+sessionStorage.setItem("lng", $scope.lng);
 console.log($scope.lat);
 console.log($scope.lng);
 if ($scope.miles == 5) {
@@ -52,8 +52,9 @@ $scope.searchArea = placesURL + $scope.lat + ',' + $scope.lng + radius + $scope.
   });//then function end for 2nd http call
   });//end http for geo call
 };//end newSearch
-// $scope.viewLocation=function(data){
-//   console.log(factory);
-
-
+$scope.viewLocation=function(data){
+  sessionStorage.setItem("name",data.name);
+  sessionStorage.setItem("endLat", data.geometry.location.lat);
+  sessionStorage.setItem("endLng", data.geometry.location.lng);
+};
 }]);//end searchController
