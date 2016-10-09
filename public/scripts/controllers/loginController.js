@@ -23,6 +23,15 @@ myApp.controller('loginController', ['$scope', '$http', function($scope,$http){
       // if so, save userProfile as $scope.userProfile
       $scope.userProfile = JSON.parse( localStorage.getItem( 'userProfile' ) );
       console.log( 'loggedIn:', $scope.userProfile );
+      //$scope.userProfile.clientID);
+      $http({
+        method: 'GET',
+        url: '/pets',
+      }).then(function(response){
+        $scope.allPets = response.data;
+        console.log('this is from the server', $scope.allPets);
+
+      });
       $scope.showLogin = true;
     }//end if
     else{

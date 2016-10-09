@@ -7,7 +7,6 @@ var breweryURL= '&keyword=brewery|taproom|brewing|taphouse=';
 
 myApp.controller("searchController", ["$scope", "$http", function($scope,$http){
   console.log("OH HAI SEARCH");
-
 $scope.newSearch=function(){
   console.log($scope.city);
   //eliminate spacing in address make it into array

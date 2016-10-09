@@ -1,8 +1,18 @@
 <div ng-controller='searchController'>
   <a href="#profile">Profile</a>
   <a href="#login">login</a>
-<p>Street Name: <input type="text" ng-model="streetName"></input></p>
-<p>City: <input type="text" ng-model="city"></input></p>
+  <div class="searchDiv">
+  <form>
+    <p>
+      <label>Street Name: </label>
+      <input type="text" ng-model="streetName"></input>
+    </p>
+    <p>
+      <label>City: </label>
+      <input type="text" ng-model="city"></input>
+    </p>
+    <p>
+  <label>State: </label>
 <select ng-model="stateInitial">
 	<option>AL</option>
 	<option>AK</option>
@@ -55,14 +65,19 @@
 	<option>WV</option>
 	<option>WI</option>
 	<option>WY</option>
-</select>
+  </select>
+</p>
+</form>
+<p>
+  <label>Search radius: </label>
 <select ng-model="miles">
 <option>5</option>
 <option>10</option>
 <option>25</option>
 </select>
-<br>
+<label>miles<label>
+</p>
 <button ng-click="newSearch()">THE BEST SEARCH</button></p>
 <a ng-repeat="name in list" href="#directions" ng-click="viewLocation(name)">{{name.name}}<br></a>
-
+</div>
 </div>
