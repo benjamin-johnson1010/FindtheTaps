@@ -65,7 +65,7 @@ $scope.searchArea = placesURL + $scope.lat + ',' + $scope.lng + radius + $scope.
   });//end http for geo call
 };//end newSearch
 $scope.viewLocation=function(data){
-  sessionStorage.setItem("name",data.name);
+  sessionStorage.setItem("nameBrew",data.name);
   sessionStorage.setItem("address", data.vicinity);
   sessionStorage.setItem("endLat", data.geometry.location.lat);
   sessionStorage.setItem("endLng", data.geometry.location.lng);

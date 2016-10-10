@@ -18,6 +18,20 @@ var mongoose = require('mongoose');
         }
       });
   });
+  router.put('/',function(req,res){
+    console.log('in router.put', req.body);
+    var query = {clientID: req.body.clientID};
+    User.update(query, {location: req.body.location}, function(err, userResults){
+    // User.find({clientID: req.body.clientID}, function(err, userResults){
+      if(err){
+          console.log('error occurred', err);
+          res.sendStatus(500);
+        } else {
+          console.log(userResults);
+          res.send(userResults);
+        }
+      });
+  });
   router.post('/',function(req, res){
     var sentData = req.body;
     console.log('sentData', sentData);

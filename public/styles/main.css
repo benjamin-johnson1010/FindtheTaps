@@ -1,13 +1,12 @@
 html{
-  bacground-color = white;
   height: 100%;
   display: flex;
   justify-content: center;
 }
-.pint{
+.pint {
   height: 100%;
   margin: 0;
-  background-color: #A5B30C;
+  background-color: #DBE036;
   border-color: black;
   border-style: solid;
   border-width: 2px;
@@ -19,6 +18,10 @@ html{
   text-align: center;
 background-color: white;
 margin: 0;
+}
+.searchDiv{
+  height: 100%;
+  /*background-color: black;*/
 }
 form{
   display: table;
