@@ -21,8 +21,7 @@ var mongoose = require('mongoose');
   router.put('/',function(req,res){
     console.log('in router.put', req.body);
     var query = {clientID: req.body.clientID};
-    User.update(query, {location: req.body.location}, function(err, userResults){
-    // User.find({clientID: req.body.clientID}, function(err, userResults){
+    User.update(query, {$push:{location: req.body.location}}, function(err, userResults){
       if(err){
           console.log('error occurred', err);
           res.sendStatus(500);
