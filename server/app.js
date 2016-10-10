@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var mongoose = require('mongoose');
 var path = require( 'path' );
+
 //Database connection
 var connection = require('../modules/connection');
 mongoose.connect(connection);
@@ -14,7 +15,7 @@ app.use(bodyParser.json());
 var index = require('../routers/index');
 app.use('/', index);
 
-//require and user pets router
+//require and user beer router
 var beer = require('../routers/beerRouter');
 app.use('/beer', beer);
 

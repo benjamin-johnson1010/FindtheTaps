@@ -23,15 +23,9 @@ myApp.controller('loginController', ['$scope', '$http', function($scope,$http){
       // if so, save userProfile as $scope.userProfile
       $scope.userProfile = JSON.parse( localStorage.getItem( 'userProfile' ) );
       console.log( 'loggedIn:', $scope.userProfile );
-      //$scope.userProfile.clientID);
-      $http({
-        method: 'GET',
-        url: '/pets',
-      }).then(function(response){
-        $scope.allPets = response.data;
-        console.log('this is from the server', $scope.allPets);
-
-      });
+      console.log($scope.userProfile.name);
+      sessionStorage.setItem("clientID",$scope.userProfile.clientID);
+      sessionStorage.setItem("name",$scope.userProfile.name);
       $scope.showLogin = true;
     }//end if
     else{
@@ -52,6 +46,7 @@ myApp.controller('loginController', ['$scope', '$http', function($scope,$http){
         localStorage.setItem( 'userToken', token );
         // save user profile to localStorage
         localStorage.setItem( 'userProfile', JSON.stringify( profile ) );
+        console.log(profile);
         location.reload();
       } // end no error
     }); //end lock.show

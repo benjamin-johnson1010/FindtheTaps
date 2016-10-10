@@ -22,8 +22,8 @@ var mongoose = require('mongoose');
     var sentData = req.body;
     console.log('sentData', sentData);
     var newUser = new User({
-      userName: userName,
-      location: location
+      clientID: sentData.clientID,
+      name: sentData.name
     });
     newUser.save(function(err){
       if(err){
