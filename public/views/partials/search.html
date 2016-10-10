@@ -68,6 +68,7 @@
   </select>
 </p>
 </form>
+<form>
 <p>
   <label>Search radius: </label>
 <select ng-model="miles">
@@ -77,6 +78,7 @@
 </select>
 <label>miles<label>
 </p>
+</form>
 <button ng-click="newSearch()">THE BEST SEARCH</button></p>
 <a ng-repeat="name in list" href="#directions" ng-click="viewLocation(name)">{{name.name}}<br></a>
 </div>

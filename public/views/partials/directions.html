@@ -8,8 +8,8 @@
 <h2>{{name}}</h2>
 <h3>{{address}}</h3>
 <button ng-click="visited">Visited</button>
-<p ng-repeat="directions in direction"><span ng-bind-html="directionResults(directions.html_instructions)"></span>
-  for {{directions.distance.text}} </p>
+<p class='dir' ng-repeat="directions in direction"><span ng-bind-html="directionResults(directions.html_instructions)"></span>
+  for {{directions.distance.text}}</p>
 
 </div>
 
