@@ -33,7 +33,8 @@ $http({
             else {
               $scope.displayLocation = $scope.allLocations[0].location;
               $scope.getLocation = $scope.allLocations[0].location;
-              console.log($scope.allLocations[0]);
+              console.log($scope.allLocations[0].location[0].location);
+              console.log($scope.getLocation);
             }
       });
 }]);
