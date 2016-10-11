@@ -31,8 +31,9 @@ $http({
               });
             }
             else {
-              console.log($scope.allLocations[0].name);
-              $scope.getLocation = $scope.allLocations.name
+              $scope.displayLocation = $scope.allLocations[0].location;
+              $scope.getLocation = $scope.allLocations[0].location;
+              console.log($scope.allLocations[0]);
             }
       });
 }]);

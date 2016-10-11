@@ -5,7 +5,8 @@ var userSchema = new Schema({
 
 clientID: String,
 name: String,
-location: [String],
+location: [{location: String,
+rank: Number}],
 // rating: Number
 });
 
