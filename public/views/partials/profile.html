@@ -1,17 +1,15 @@
-<div ng-controller='loginController'>
+<div ng-controller='profileController'>
   <li><a href="#search">Search</a></li>
   <li><a href="#login">login</a></li>
 
   <h2>Hi, {{name}}</h2>
   <h3>Breweies visited</h3>
   <p ng-repeat="location in getLocation">{{location.location}}
-<select ng-model="rank">
-  <options>1</options>
-  <options>2</options>
-  <options>3</options>
-  <options>4</options>
-  <options>5</options>
-</select>
+  <input type="radio" ng-model="rank" value="1" data="{{location._id}}" ng-change='newRank(rank)'>1</input>
+  <input type="radio" ng-model="rank" value="2" data="{{location._id}}" ng-change='newRank(rank)'>2</input>
+  <input type="radio" ng-model="rank" value="3" data="{{location._id}}" ng-change='newRank(rank)'>3</input>
+  <input type="radio" ng-model="rank" value="4" data="{{location._id}}" ng-change='newRank(rank)'>4</input>
+  <input type="radio" ng-model="rank" value="5" data="{{location._id}}" ng-change='newRank(rank)'>5</input>
   </p>
 
 </div>

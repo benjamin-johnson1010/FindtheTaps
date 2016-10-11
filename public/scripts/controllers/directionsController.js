@@ -9,7 +9,9 @@ myApp.controller("directionsController", ["$scope", "$http", '$sce', function($s
   $scope.endLat = sessionStorage.getItem("endLat");
   $scope.endLng = sessionStorage.getItem("endLng");
   $scope.clientID = sessionStorage.getItem("clientID");
-  console.log($scope.nameBrew);
+  $scope.photos = sessionStorage.getItem("photo");
+
+
  $scope.displayDirections = function(){
    console.log('in directions controller');
 $scope.searchDirections = directionsURL + $scope.lat + ',' + $scope.lng + '&destination=' + $scope.endLat +','+ $scope.endLng + key;

@@ -4,7 +4,7 @@ myApp.controller("profileController", ["$scope", "$http", function($scope, $http
   // $scope.clientID = sessionStorage.getItem("clientID");
   $scope.clientID = sessionStorage.getItem("clientID");
   $scope.name = sessionStorage.getItem("name");
-
+// $scope.listOfRanks = [{rank: 1}, {rank: 2}, {rank: 3},{rank: 4},{rank: 5}];
 console.log($scope.clientID);
 console.log($scope.name);
 $http({
@@ -35,6 +35,17 @@ $http({
               $scope.getLocation = $scope.allLocations[0].location;
               console.log($scope.allLocations[0].location[0].location);
               console.log($scope.getLocation);
+
             }
       });
+      $scope.newRank = function(rank) {
+        //     var sendRank={
+ //       rank: rank
+ //     }
+ //     $http({
+ //       method: 'PUT'
+ //       url: '/beer',
+ //       data: sendRank
+ //     })
+  };
 }]);

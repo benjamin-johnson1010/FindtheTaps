@@ -19,8 +19,6 @@ app.use('/', index);
 var beer = require('../routers/beerRouter');
 app.use('/beer', beer);
 
-// mongoose.connect("mongodb://localhost:27017/userTable");
-
 // static files
 app.use(express.static('public'));
 
