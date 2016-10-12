@@ -1,15 +1,17 @@
 <div ng-controller='profileController'>
-  <li><a href="#search">Search</a></li>
-  <li><a href="#login">login</a></li>
+  <li><a href="#/search">Search</a></li>
+  <li><a href="#/login">login</a></li>
 
   <h2>Hi, {{name}}</h2>
   <h3>Breweies visited</h3>
-  <p ng-repeat="location in getLocation">{{location.location}}
-  <input type="radio" ng-model="rank" value="1" data="{{location._id}}" ng-change='newRank(rank)'>1</input>
-  <input type="radio" ng-model="rank" value="2" data="{{location._id}}" ng-change='newRank(rank)'>2</input>
-  <input type="radio" ng-model="rank" value="3" data="{{location._id}}" ng-change='newRank(rank)'>3</input>
-  <input type="radio" ng-model="rank" value="4" data="{{location._id}}" ng-change='newRank(rank)'>4</input>
-  <input type="radio" ng-model="rank" value="5" data="{{location._id}}" ng-change='newRank(rank)'>5</input>
+  {{displayName}}
+
+  <p ng-repeat="name in getName">{{name.name}}
+  <input type="radio" ng-model="rank" value="1" ng-change='newRank(rank, newLocation(name.place_id))'>1</input>
+  <input type="radio" ng-model="rank" value="2" ng-change='newRank(rank, newLocation(name.place_id))'>2</input>
+  <input type="radio" ng-model="rank" value="3" ng-change='newRank(rank, newLocation(name.place_id))'>3</input>
+  <input type="radio" ng-model="rank" value="4" ng-change='newRank(rank, newLocation(name.place_id))'>4</input>
+  <input type="radio" ng-model="rank" value="5" ng-change='newRank(rank, newLocation(name.place_id))'>5</input>
   </p>
 
 </div>

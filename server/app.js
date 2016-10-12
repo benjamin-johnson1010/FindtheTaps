@@ -15,10 +15,15 @@ app.use(bodyParser.json());
 var index = require('../routers/index');
 app.use('/', index);
 
-//require and user beer router
+//require and use beer router
 var beer = require('../routers/beerRouter');
 app.use('/beer', beer);
-
+//require and use brewery router
+var brewery = require('../routers/breweryRouter');
+app.use('/brewery', brewery);
+//require and use rank router
+var rank = require('../routers/rankRouter');
+app.use('/rank', rank);
 // static files
 app.use(express.static('public'));
 

@@ -1,10 +1,7 @@
 myApp.controller("profileController", ["$scope", "$http", function($scope, $http){
   console.log("Welcome profile");
-  // $scope.clientID = sessionStorage.getItem("clientID");
-  // $scope.clientID = sessionStorage.getItem("clientID");
   $scope.clientID = sessionStorage.getItem("clientID");
   $scope.name = sessionStorage.getItem("name");
-// $scope.listOfRanks = [{rank: 1}, {rank: 2}, {rank: 3},{rank: 4},{rank: 5}];
 console.log($scope.clientID);
 console.log($scope.name);
 $http({
@@ -31,21 +28,41 @@ $http({
               });
             }
             else {
-              $scope.displayLocation = $scope.allLocations[0].location;
-              $scope.getLocation = $scope.allLocations[0].location;
-              console.log($scope.allLocations[0].location[0].location);
-              console.log($scope.getLocation);
+              var getBrewery={
+                clientID: $scope.clientID
+              };
+              $http({
+                method: 'GET',
+                url:'/brewery',
+                data: getBrewery,
+              }).then(function(response){
+                console.log('brewery get', response);
+                $scope.getName = response.data;
+                console.log($scope.getName);
+              });
 
             }
       });
+      var getLocation;
+      $scope.newLocation= function(data){
+        getLocation = data;
+        console.log(getLocation);
+      };
       $scope.newRank = function(rank) {
-        //     var sendRank={
- //       rank: rank
- //     }
- //     $http({
- //       method: 'PUT'
- //       url: '/beer',
- //       data: sendRank
- //     })
-  };
+        console.log(rank);
+        console.log(getLocation);
+        var newRanking = {
+          place_id: getLocation,
+          rank: rank
+        };
+         console.log(newRanking);
+        $http({
+          method: 'PUT',
+          url: '/rank',
+          data: newRanking,
+        }).then(function(response){
+          console.log('OH HAI FROM SERVER',response);
+        });
+        };
+
 }]);

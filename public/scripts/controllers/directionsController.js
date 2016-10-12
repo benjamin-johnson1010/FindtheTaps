@@ -9,9 +9,7 @@ myApp.controller("directionsController", ["$scope", "$http", '$sce', function($s
   $scope.endLat = sessionStorage.getItem("endLat");
   $scope.endLng = sessionStorage.getItem("endLng");
   $scope.clientID = sessionStorage.getItem("clientID");
-  $scope.photos = sessionStorage.getItem("photo");
-
-
+  $scope.place_id =sessionStorage.getItem("place_id");
  $scope.displayDirections = function(){
    console.log('in directions controller');
 $scope.searchDirections = directionsURL + $scope.lat + ',' + $scope.lng + '&destination=' + $scope.endLat +','+ $scope.endLng + key;
@@ -31,15 +29,15 @@ $scope.searchDirections = directionsURL + $scope.lat + ',' + $scope.lng + '&dest
  $scope.visited = function(){
    var changeInput ={
      clientID: $scope.clientID,
-     location: $scope.nameBrew,
+     place_id: $scope.place_id
    };
  $http({
    method: 'PUT',
-   url: '/beer',
-   data: changeInput
+   url: '/brewery',
+   data: changeInput,
  }).then(function(data){
 console.log('hit', data);
 });
-};
+ };
 }]);
 //directionsURL + $scope.lat + ','  $scope.lng + '&destination=place_id + key

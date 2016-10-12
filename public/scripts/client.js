@@ -7,23 +7,23 @@ myApp.config(["$routeProvider", function($routeProvider){
     $routeProvider.
       when("/login", {
         templateUrl: "/views/partials/login.html",
-        controller: "loginController"
+        // controller: "loginController"
       }).
       when("/signUp", {
         templateUrl: "/views/partials/signUp.html",
-        controller: "signUpController"
+        // controller: "signUpController"
       }).
       when("/search", {
         templateUrl: "/views/partials/search.html",
-        controller: "searchController"
+        // controller: "searchController"
       }).
       when("/profile", {
         templateUrl: "/views/partials/profile.html",
-        controller: "profileController"
+        // controller: "profileController"
       }).
       when("/directions", {
         templateUrl: "/views/partials/directions.html",
-        controller: "directionsController"
+        // controller: "directionsController"
       }).
       otherwise({
         redirectTo: "/login"

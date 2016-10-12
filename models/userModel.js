@@ -5,7 +5,8 @@ var userSchema = new Schema({
 
 clientID: String,
 name: String,
-location: [{location:String}]
+location: [{location: String,
+            rank: String}],
 });
 
 var User = mongoose.model('users', userSchema);

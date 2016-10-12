@@ -65,10 +65,24 @@ $scope.searchArea = placesURL + $scope.lat + ',' + $scope.lng + radius + $scope.
   });//end http for geo call
 };//end newSearch
 $scope.viewLocation=function(data){
+  console.log('data',data.place_id);
+  //sent all this info to directionsController
   sessionStorage.setItem("nameBrew",data.name);
   sessionStorage.setItem("photo", data.photos[0].html_attributions[0]);
   sessionStorage.setItem("address", data.vicinity);
   sessionStorage.setItem("endLat", data.geometry.location.lat);
   sessionStorage.setItem("endLng", data.geometry.location.lng);
+  sessionStorage.setItem("place_id", data.place_id);
+var newLocation ={
+  place_id: data.place_id,
+  name: data.name
+};
+  $http({
+    method: 'POST',
+    url: '/brewery',
+    data: newLocation,
+  }).then(function(response){
+    console.log(response);
+  });
 };
 }]);//end searchController
