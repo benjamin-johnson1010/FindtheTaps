@@ -78,11 +78,37 @@ var newLocation ={
   name: data.name
 };
   $http({
+    method: 'GET',
+    url:'/brewery',
+    data: newLocation,
+}).then(function(response){
+  var newPlaceId = newLocation.place_id;
+
+  for(var i = 0; i < response.data.length; i++){
+  if(newPlaceId == response.data[i].place_id){
+    console.log('hit');
+  }
+  else{
+
+
+  $http({
     method: 'POST',
     url: '/brewery',
     data: newLocation,
   }).then(function(response){
     console.log(response);
+
   });
+  }
+  $http({
+    method: 'POST',
+    url: '/brewery',
+    data: newLocation,
+  }).then(function(response){
+    console.log(response);
+
+  });
+}
+});//end get call
 };
 }]);//end searchController

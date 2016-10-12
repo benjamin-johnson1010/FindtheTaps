@@ -62,6 +62,7 @@ $http({
           data: newRanking,
         }).then(function(response){
           console.log('OH HAI FROM SERVER',response);
+          location.reload();
         });
         };
 

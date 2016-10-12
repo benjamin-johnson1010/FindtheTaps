@@ -5,6 +5,7 @@ var brewerySchema = new Schema({
 name: String,
 place_id: String,
 clientID: [String],
+rank: String
 
 });
 var User = mongoose.model('brewery', brewerySchema);
