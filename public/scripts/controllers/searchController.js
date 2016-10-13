@@ -7,6 +7,20 @@ var breweryURL= '&keyword=brewery|taproom|brewing|taphouse=';
 
 myApp.controller("searchController", ["$scope", "$http", function($scope,$http){
   console.log("OH HAI SEARCH");
+  $scope.savedSearch = function(){
+    console.log(sessionStorage.searchUrl);
+$scope.searchUrl = sessionStorage.searchUrl;
+  console.log($scope.searchUrl);
+      $http({
+        url: $scope.searchUrl,
+        datatype: JSON
+      }).then(function(response){
+    //returns data back from server
+    //list equals the array of objects of brewery and taphouse
+        $scope.list = response.data.results;
+        console.log($scope.list);
+      });//then function end for 2nd http call
+    };
 $scope.newSearch=function(){
   console.log($scope.city);
   //eliminate spacing in address make it into array
@@ -53,6 +67,8 @@ else{
 }
 console.log($scope.distance);
 $scope.searchArea = placesURL + $scope.lat + ',' + $scope.lng + radius + $scope.distance + next + breweryURL + key;
+sessionStorage.searchUrl = $scope.searchArea;
+console.log(sessionStorage.searchUrl);
   $http({
     url: $scope.searchArea,
     datatype: JSON
@@ -61,6 +77,7 @@ $scope.searchArea = placesURL + $scope.lat + ',' + $scope.lng + radius + $scope.
 //list equals the array of objects of brewery and taphouse
     $scope.list = response.data.results;
     console.log($scope.list);
+    $scope.results = true;
   });//then function end for 2nd http call
   });//end http for geo call
 };//end newSearch
@@ -78,37 +95,26 @@ var newLocation ={
   name: data.name
 };
   $http({
-    method: 'GET',
-    url:'/brewery',
+    method: 'POST',
+    url:'/rank',
     data: newLocation,
 }).then(function(response){
-  var newPlaceId = newLocation.place_id;
-
-  for(var i = 0; i < response.data.length; i++){
-  if(newPlaceId == response.data[i].place_id){
-    console.log('hit');
-  }
-  else{
-
-
-  $http({
-    method: 'POST',
-    url: '/brewery',
-    data: newLocation,
-  }).then(function(response){
-    console.log(response);
-
-  });
-  }
-  $http({
-    method: 'POST',
-    url: '/brewery',
-    data: newLocation,
-  }).then(function(response){
-    console.log(response);
-
-  });
-}
+console.log(response);
+//   for(var i = 0; i < response.data.length; i++){
+//   if(newPlaceId == response.data[i].place_id){
+//     console.log('hit');
+//   }
+//   // else{
+//   // $http({
+//   //   method: 'POST',
+//   //   url: '/brewery',
+//   //   data: newLocation,
+//   // }).then(function(response){
+//   //   console.log(response);
+//   //
+//   // });
+//   }
+// }
 });//end get call
 };
 }]);//end searchController
