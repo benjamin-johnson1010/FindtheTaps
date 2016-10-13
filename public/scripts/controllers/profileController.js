@@ -62,6 +62,8 @@ $http({
           data: newRanking,
         }).then(function(response){
           console.log('OH HAI FROM SERVER',response);
+          console.log(rank);
+          $scope.rank = rank;
           location.reload();
         });
         };

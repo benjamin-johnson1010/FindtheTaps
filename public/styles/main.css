@@ -2,14 +2,16 @@ html{
   height: 100%;
   display: flex;
   justify-content: center;
+  background-image: url(thumb_beer_1024.jpg)
 }
 .pint {
   height: 100%;
   margin: 0;
-  background-color: #DBE036;
+  /*background-color: #DBE036;*/
+  background-color: white;
   border-color: black;
   border-style: solid;
-  border-width: 2px;
+  border-width: 1px;
 }
 .foam{
   border-color: black;
@@ -28,13 +30,43 @@ form{
   }
 p{
   display: table-row;
+  font-size: 20px;
 }
 label{
-  display:table-cell
+  display:table-cell;
+  border-spacing: 10px;
 }
 input{
   display: table-cell;
+  border-spacing: 10px;
+
 }
 .dir{
   line-height: 1.5;
+}
+
+a.nav{
+  color: black;
+}
+.nav:link{
+  background-color: #a8610b;
+  border-color: black;
+  border-style: solid;
+  border-width: 2px;
+   padding: 14px 25px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   margin-bottom: 10px;
+}
+button{
+  height: 30px;
+  width:auto;
+  background-color: #a8610b;
+}
+button:hover{
+  background-color: #b7b0a7;
+;
+
+
 }

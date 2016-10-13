@@ -9,11 +9,12 @@
 </div>
 <div ng-show="showLogin">
   <input type="button" ng-click="logOut()" value="Log Out">
-  <ul>
-  <li><a href="#/search">Search</a></li>
-  <li><a href="#/profile">Profiles</a></li>
+  <div class="navBar">
+    <a class="nav" href="#/login">Login</a>
+  <a class="nav" href="#/search">Search</a>
+  <a class="nav" href="#/profile">Profile</a>
+</div>
   <p>{{displayName}}</p>
-</ul>
 </div>
 </div>
 </div>
