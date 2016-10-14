@@ -1,6 +1,6 @@
 html{
   height: 100%;
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   background-image: url(thumb_beer_1024.jpg)
 }
@@ -9,9 +9,9 @@ html{
   margin: 0;
   /*background-color: #DBE036;*/
   background-color: white;
-  border-color: black;
-  border-style: solid;
-  border-width: 1px;
+  /*border-color: black;*/
+  /*border-style: solid;*/
+  /*border-width: 1px;*/
 }
 .foam{
   border-color: black;
@@ -58,6 +58,9 @@ a.nav{
    text-decoration: none;
    display: inline-block;
    margin-bottom: 10px;
+}
+.nav:hover{
+  background-color:
 }
 button{
   height: 30px;
