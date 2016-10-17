@@ -2,9 +2,9 @@ html{
   height: 100%;
   display: inline-flex;
   justify-content: center;
-  background-image: url(thumb_beer_1024.jpg);
+  background-image: url(imperial.jpg);
   background-repeat: no-repeat;
-  background-size: 800px 1200px;
+  background-size: 1400px 1000px;
   background-position: center;
 }
 .pint {
