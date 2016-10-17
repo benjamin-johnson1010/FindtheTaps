@@ -84,10 +84,10 @@
 <button ng-click="newSearch()">THE BEST SEARCH</button></p>
 <div ng-hide='results'>
 <div ng-init='savedSearch()'>
-<a ng-repeat="name in list" href="#/directions" ng-click="viewLocation(name)">{{name.name}}<br></a>
+<a class="results" ng-repeat="name in list" href="#/directions" ng-click="viewLocation(name)">{{name.name}}<br></a>
 </div>
 </div>
 <div ng-show='results'>
-<a ng-repeat="name in list" href="#/directions" ng-click="viewLocation(name)">{{name.name}}<br></a>
+<a class="results" ng-repeat="name in list" href="#/directions" ng-click="viewLocation(name)">{{name.name}}<br></a>
 </div>
 </div>
