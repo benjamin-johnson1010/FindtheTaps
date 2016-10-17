@@ -25,6 +25,10 @@ myApp.config(["$routeProvider", function($routeProvider){
         templateUrl: "/views/partials/directions.html",
         // controller: "directionsController"
       }).
+      when("/taxi", {
+        templateUrl: "/views/partials/taxi.html",
+        // controller: "taxiController"
+      }).
       otherwise({
         redirectTo: "/login"
       });
