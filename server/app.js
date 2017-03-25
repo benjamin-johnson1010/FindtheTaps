@@ -28,7 +28,7 @@ app.use('/rank', rank);
 app.use(express.static('public'));
 
 // server listen port
-var portDecision = process.env.PORT || 8080;
+var portDecision = process.env.PORT || 3000;
 
 var server = app.listen(portDecision, function() {
   var port = server.address().port;
