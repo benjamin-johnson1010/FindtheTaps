@@ -1,5 +1,5 @@
 var directionsURL = 'https://maps.googleapis.com/maps/api/directions/json?origin=';
-var key = '&key=AIzaSyAgt1boABfcHeikPyY8Xps1SD5JLfepjcw';
+var key =
 myApp.controller("directionsController", ["$scope", "$http", '$sce', function($scope,$http, $sce){
   console.log('in directionsController');
   $scope.nameBrew = sessionStorage.getItem("nameBrew");
