@@ -1,4 +1,4 @@
-var key = '&key=AIzaSyAgt1boABfcHeikPyY8Xps1SD5JLfepjcw';
+var key =;
 var geoURL = 'https://maps.googleapis.com/maps/api/geocode/json?address=:';
 var placesURL = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=';
 var radius='&radius=';
